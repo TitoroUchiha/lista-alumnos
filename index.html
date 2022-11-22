@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de arregloAlumnos</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body onload="mostrarcampos()">
+        <h3>Lista de alumnos en mi clase</h3>
+        <div id="registros">
+        </div>
+        <button id="btnEnviar" onclick="enviar()">Enviar</button>
+        <div id="mostrarNombres"></div>
+        <button id="btnOrdenar" onclick="ordenar()">ordenar</button>
+        <script>
+            document.getElementById("btnOrdenar").style.display = "none";
+            var arregloAlumnos = [];
+            function enviar() {
+                for (i = 1; 1 <= alumnos; i++) {
+                    arregloAlumnos.push(document.getElementById("alumno" + i).value);
+                }
+                document.getElementById("mostrarNombres").innerHTML = arregloAlumnos;
+                document.getElementById("btnEnviar").style.display = "none";
+                document.getElementById("btnOrdenar").style.display = "inline-block";
+            }
+            function ordenar() {
+                arregloAlumnos.sort();
+                document.getElementById("mostrarNombres").innerHTML = arregloAlumnos;
+            }
+            var alumnos = 4;
+            function mostrarcampos() {
+                for (i = 1; 1 <= alumnos; i++) {
+                    document.getElementById("registros").innerHTML += i + ": <input type='text' id='alumno" + i + "' placeholder='Nombre del alumno'><br>";
+                }
+            }
+        </script>
+    </body>
+
+</html>
